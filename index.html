@@ -1109,18 +1109,28 @@
             <div class="flower__grass__overlay"></div>
         </div>
     </div>
-    <script>
-        document.getElementById('heart').addEventListener('click', function() {
-            this.classList.add('grow');
-            const flowers = document.querySelector('.flowers');
+   <script>
+    document.getElementById('heart').addEventListener('click', function() {
+        this.classList.add('grow');
+        const flowers = document.querySelector('.flowers');
+
+        setTimeout(() => {
+            this.style.display = 'none';
+            flowers.classList.add('bloom');
+
             setTimeout(() => {
-                this.style.display = 'none';
-                flowers.classList.add('bloom');
+                flowers.classList.add('fade');
+
+                // 🌸 Fade bitince yönlendir
                 setTimeout(() => {
-                    flowers.classList.add('fade');
-                }, 2500); // Start fade after bloom animation
-            }, 2000); // Start bloom after heart fades
-        });
-    </script>
+                    window.location.href = 'surprise.html';
+                }, 2000); // fade animasyonu ne kadar sürüyorsa
+
+            }, 2500); // Bloom sonrası fade başlar
+
+        }, 2000); // Heart sonrası bloom başlar
+    });
+</script>
+
 </body>
 </html>
